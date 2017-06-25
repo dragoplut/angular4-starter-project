@@ -1,0 +1,88 @@
+.toolbar-container {
+  background-color: #244131;
+  color: #a3e5c0;
+  position: relative;
+  width: 100%;
+  .mat-icon-button {
+    background-color: transparent;
+  }
+  .tool-bar-list-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 56px;
+  }
+  .app-logo {
+    background: url('../../../assets/icon/favicon-96x96.png') no-repeat center center;
+    background-size: 108%;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    margin: 0;
+    position: relative;
+    height: 40px;
+    width: 40px;
+  }
+}
+a {
+  display: block;
+  background-color: #fff;
+  color: #244131;
+  font-size: 14px;
+  height: 36px;
+  line-height: 36px;
+  padding-left: 18px;
+  text-align: left;
+  vertical-align: middle;
+  width: 100%;
+}
+a:hover, a.active {
+  background-color: #E4E4E4;
+}
+a.active {
+  border-left: 6px solid #94d2af;
+  padding-left: 12px;
+}
+.toolbar-app-title {
+  cursor: pointer;
+  margin-left: 18px;
+}
+.app-current-user {
+  height: 36px;
+}
+.user-email {
+  font-size: 10px;
+  float: left;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  line-height: 17px;
+  padding: 0;
+  max-width: 160px;
+  width: 100px;
+  vertical-align: middle;
+}
+.profile-details-container {
+  display: inline-block;
+  position: relative;
+  height: 36px !important;
+  min-height: 36px !important;
+  width: 100px;
+  vertical-align: top;
+}
+.user-profile-icon {
+  display: inline-block;
+  font-size: 24px;
+  float: left;
+  line-height: 32px;
+  position: relative;
+  margin: 0 10px 0 18px !important;
+  vertical-align: middle;
+}
+.toolbar-spacer {
+  flex: 1 1 auto;
+}

@@ -1,0 +1,429 @@
+/* this file will be extracted to main dist folder and is imported in index.html */
+/* This file is for setting global styles  */
+@import 'variables';
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+@import '../../node_modules/dragula/dist/dragula.css';
+
+/***************************************
+    ANGULAR 2 MATERIAL THEME STYLES
+****************************************/
+
+/**
+ Important: this block may not work and throw errors
+ if dependencies in package.json are incorrect/broken
+ Approved working versions/dependencies:
+ "dependencies":
+ "@angular/core": "4.1.3", "@angular/material": "2.0.0-beta.2",
+ "@angular/router": "4.1.3", "angular-cli": "^1.0.0-beta.28.3",
+ "hammerjs": "^2.0.8", "systemjs": "0.19.41", "zone.js": "0.8.4"
+ "devDependencies":
+ "@angular/compiler-cli": "4.1.3", "css-loader": "^0.28.0",
+ "raw-loader": "^0.5.1", "sass-loader": "^6.0.2",
+**/
+
+@import '~@angular/material/core/theming/all-theme';
+@include mat-core();
+// Theming guide: https://github.com/angular/material2/blob/master/guides/theming.md
+$app-primary: mat-palette($mat-grey);
+$app-accent:  mat-palette($mat-brown, A200, A100, A400);
+$app-warn:    mat-palette($mat-red);
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+@include angular-material-theme($app-theme);
+
+/***************************************
+            ROOT STYLES
+****************************************/
+
+* {
+  box-sizing: border-box;
+}
+body, html, main, .main, .app, app {
+  margin: 0;
+  height: 100%;
+  background-color: #fff;
+  min-width: 320px;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.main {
+  overflow-y: hidden;
+}
+
+/***************************************
+            COMMON STYLES
+****************************************/
+// Cross browser animation support
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+// Animation helper. Make animation smooth and resized images sharp.
+// Should be included in proper class as:
+// @include animationHelper;
+@mixin animationHelper {
+  -webkit-transform: translateZ(0) rotate(0.01deg);
+  -ms-transform: translateZ(0) rotate(0.01deg);
+  transform: translateZ(0) rotate(0.01deg);
+}
+
+// Truncate text in tag.
+// Width of element should be defined.
+.truncated {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: nowrap;
+}
+
+// Custom shadows
+// With hover effect:
+.shadow-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.shadow-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  z-index: 96;
+}
+// Without hover effect:
+.shadow-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+// hidden behavior fix
+// Example in tag:
+// <span [hidden]="true"></span>
+[hidden] {
+  display: none !important;
+}
+
+.page-header {
+  font-size: 22px;
+  font-weight: 600;
+  padding-left: 12px;
+}
+.page-content {
+  position: relative;
+  padding: 0 24px 24px 24px;
+}
+
+/***************************************
+         LOADING SPINNER STYLES
+****************************************/
+
+.request-progress-spinner {
+  position: absolute;
+  right: 4px;
+  top: 1px;
+  height: 44px !important;
+  width: 44px !important;
+}
+
+/***************************************
+          LOGIN PAGE STYLES
+****************************************/
+
+.auth {
+  height: 100vh;
+  background: url('../assets/img/background-1920x1920.png') no-repeat center top;
+  background-size: cover;
+  .signin-form {
+    border-radius: 2px;
+    background-color: white;
+    padding: 0;
+    position: absolute;
+    left: calc(50vw - 160px);
+    top: calc(50vh - 190px);
+    height: 380px;
+    width: 320px;
+    min-height: 380px;
+    min-width: 200px;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+/***************************************
+           MD DIALOG STYLES
+****************************************/
+// Text color in dialogs
+.mat-dialog-container .cdk-focus-trap-content {
+  color: #585b5d;
+}
+
+/***************************************
+           MEDIA QUERY STYLES
+****************************************/
+
+@media screen and (max-width: $media-desktop-max) {
+  // Hide "APP" title in side-bar
+  .app-title {
+    color: transparent !important;
+  }
+  // Show APP logo image, "opacity" is set for transition animation
+  .app-logo {
+    opacity: 1 !important;
+  }
+  // Move show/hide side-bar button
+  .main-container .side-bar-show-hide-button {
+    left: -47px;
+  }
+  // Reduce side-bar width to free space fot table with data
+  .side-bar {
+    width: 54px !important;
+  }
+  .app-current-user {
+    display: none !important;
+  }
+  .table-lable-title {
+    display: none !important;
+  }
+  .table-lable-icon {
+    display: block !important;
+  }
+}
+@media screen and (max-width: $media-mobile-max) {
+  .default-header, .side-bar {
+    display: none;
+  }
+  .main-container {
+    height: calc(100% - 56px) !important;
+    .side-bar-show-hide-button {
+      display: none;
+    }
+    // Remove empty spaces around content to fit mobile devices max width
+    .main, .page-content {
+      padding: 0 !important;
+    }
+  }
+  .mat-sidenav-content {
+    margin-left: 0 !important;
+  }
+  // Set top screen toolbar styles
+  .toolbar-container {
+    display: flex !important;
+  }
+  .mat-toolbar, .mat-toolbar-row {
+    min-height: 56px !important;
+    height: 56px !important;
+  }
+  .search-block-container {
+    max-width: 120px;
+    width: 120px;
+    .search-input-container {
+      margin: 0 6px 0 0;
+      max-width: 60px;
+      width: 60px;
+      .search-input {
+        max-width: 60px;
+        min-width: 60px;
+        width: 60px;
+        z-index: 55;
+      }
+    }
+    .search-md-select {
+      font-size: 10px;
+      margin-right: 8px;
+      max-width: 40px;
+      min-width: 40px;
+      width: 40px;
+      overflow: hidden;
+    }
+  }
+  .devices-container {
+    .search-block-container {
+      margin-right: 54px;
+    }
+  }
+  .table-lable-title {
+    display: none !important;
+  }
+  .table-lable-icon {
+    display: block !important;
+  }
+}
+@media screen and (max-width: $media-mobile-max) {
+  // Pull up settings bar with toggles
+  .data-table-container .data-table-actions-container {
+    margin-top: 0 !important;
+  }
+  .dynamic-content-divider {
+    display: none !important;
+  }
+  .data-edit-form {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  .form-edit-new-content, .form-edit-new-content .mat-input-container, .form-edit-new-content .data-edit-form-item {
+    margin: 0 12px;
+    width: calc(100% - 24px) !important;
+    max-width: calc(100% - 24px) !important;
+  }
+  .form-edit-new-content .data-edit-form-item {
+    margin: 16px 12px !important;
+  }
+  .form-edit-new-content .mat-input-container:first-child {
+    margin-top: 12px;
+  }
+  .form-md-option-general {
+    //width: auto !important;
+    //max-width: 480px !important;
+    //min-width: 320px !important;
+  }
+  .mat-tab-header-pagination {
+    display: flex !important;
+  }
+  .profile-action-button, .app-image-card, .crowdrise-connected-banner {
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+  }
+  .tag-add-button {
+    right: 24px !important;
+  }
+  .user-table-actions {
+    min-width: 36px !important;
+    padding: 0 !important;
+    width: 36px !important;
+  }
+  .table-action-button {
+    overflow: hidden;
+    padding-left: 6px !important;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+    width: 62px !important;
+  }
+  .user-table-actions.table-action-button.back-button, .user-table-actions.table-action-button.save-button {
+    width: 82px !important;
+  }
+  .desktop-content {
+    display: none !important;
+  }
+  .mobile-content {
+    display: inline-block !important;
+    width: calc(100% - 24px);
+  }
+  .profile-action-button {
+    min-width: 150px !important;
+  }
+  .profile-action-button.connect-crowdrise-button {
+    min-width: 202px !important;
+    overflow: visible;
+  }
+  .container-half {
+    padding-left: 24px;
+    width: 100% !important;
+  }
+}
+@media screen and (min-width: $media-mobile-max) {
+  // Hide top toolbar for mobile devices
+  .toolbar-container {
+    display: none !important;
+  }
+  .refresh-btn {
+    top: 0 !important;
+    right: 36px !important;
+  }
+}
+@media (max-width: 600px) and (orientation: portrait) {
+  // Rewrite initial style of 64px to fit general app style
+  .mat-toolbar-row {
+    height: 56px !important;
+  }
+  .search-block-container {
+    max-width: 80px !important;
+  }
+  .mat-menu-item, .md-menu-item {
+    letter-spacing: -1px !important;
+  }
+  .direct-app-header {
+    padding: 0 !important;
+    text-align: center !important;
+    top: 0;
+    height: 120px;
+    a {
+      display: inline-block !important;
+      position: relative;
+      float: none !important;
+      margin: 12px auto 24px;
+      height: 48px !important;
+      width: 47% !important;
+      vertical-align: top;
+    }
+    a:first-child {
+      width: 60% !important;
+    }
+    img {
+      display: inline-block !important;
+      position: relative;
+      margin: 12px 2px !important;
+      transform: scale(0.5);
+    }
+  }
+  .notification-textarea {
+    margin: 0 12px !important;
+    width: 280px !important;
+  }
+  users-table {
+    margin: 0 !important;
+  }
+}
+@media screen and (min-width: 568px) {
+  .payment-form-page {
+    .payment-form {
+      max-width: 100vw !important;
+    }
+    .input-donation-billing-info {
+      float: left;
+      max-width: calc(50% - 48px) !important;
+    }
+    .full-width {
+      max-width: calc(100% - 24px) !important;
+    }
+  }
+}
+@media screen and (max-width: 640px) {
+  .payment-form-page {
+    .payment-form {
+      max-width: 100vw !important;
+    }
+    .input-donation-billing-info {
+      float: left;
+    }
+    .full-width {
+      max-width: calc(100% - 24px) !important;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .payment-form-page {
+    .payment-form {
+      width: 70vw !important;
+      max-width: 768px !important;
+    }
+  }
+}
+@media screen and (max-width: 368px) {
+  .filter-button {
+    display: none !important;
+  }
+  .mat-tab-label, .md-tab-label {
+    min-width: 45px !important;
+    width: 45px;
+    padding: 0 4px;
+  }
+  .mat-dialog-container {
+    max-width: 100vw !important;
+  }
+}

@@ -1,0 +1,67 @@
+<div class="auth row center-xs middle-xs">
+  <form
+      class="signin-form col-xs-6 shadow-2"
+      #authForm="ngForm"
+      (submit)="authenticate()"
+  >
+    <div class="inputs row center-xs middle-xs signin-form-content">
+      <loading-spinner [isLoading]="loading"></loading-spinner>
+      <div class="title-container">
+        <h3 class="col-xs-8 title">APP Sign In</h3>
+      </div>
+      <div class="clear-container">
+        <md-input-container>
+          <input
+            mdInput
+            autofocus="!email"
+            type="email"
+            name="email"
+            required
+            [(ngModel)]="user.email"
+            placeholder="email"
+            #email="ngModel"
+            autoComplete="new-email"
+          >
+          <md-hint
+            align="center"
+            class="error"
+            [hidden]="!email.valid || !email.pristine"
+          >
+            email is invalid
+          </md-hint>
+        </md-input-container>
+        <md-input-container>
+          <input
+            mdInput
+            required
+            type="password"
+            name="password"
+            [(ngModel)]="user.password"
+            placeholder="password"
+            #password="ngModel"
+            autoComplete="new-password"
+          >
+          <md-hint
+            align="center"
+            class="error"
+            [hidden]="!password.valid || !password.pristine"
+          >
+            password is required
+          </md-hint>
+        </md-input-container>
+      </div>
+      <div class="actions col-xs-12">
+        <div class="row center-xs">
+          <button
+            md-raised-button
+            type="submit"
+            class="btn-light"
+            [disabled]="!authForm.form.valid"
+          >
+            Sign In
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

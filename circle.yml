@@ -1,0 +1,34 @@
+machine:
+  node:
+    version: 7.0.0
+general:
+  branches:
+    only:
+      - development
+      - qa
+      - master
+dependencies:
+  override:
+    - npm install
+    - npm install -g webpack rimraf tslint typescript
+    - if [ $CIRCLE_BRANCH = 'development' ]; then export API_URL=http://dev-back-end:5000/api/v1 && npm run build:prod; fi
+    - if [ $CIRCLE_BRANCH = 'qa' ]; then export API_URL=http://qa-back-end:5000/api/v1 && npm run build:prod; fi
+    - if [ $CIRCLE_BRANCH = 'master' ]; then export ENV=production && export API_URL=https://maset-back-end/api/v1 && npm run build:prod; fi
+
+test:
+  override:
+    - npm test
+
+deployment:
+  development:
+    branch: development
+    commands:
+      - aws s3 sync ./dist s3://v2-project-development --delete
+  qa:
+    branch: qa
+    commands:
+      - aws s3 sync ./dist s3://v2-project-qa --delete
+  master:
+    branch: master
+    commands:
+      - aws s3 sync ./dist s3://v2-project-master --delete

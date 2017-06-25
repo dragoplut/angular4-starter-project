@@ -1,0 +1,30 @@
+<div class="side-bar col-1 middle-xs" *ngIf="currentUser">
+  <div title="APP" class="app-title" (click)="goBack()">
+    <div class="app-logo" (click)="goBack()"></div>
+    APP
+  </div>
+  <a md-button
+    class="side-bar-list-item"
+    [routerLink]="['','user','profile']"
+    [routerLinkActiveOptions]= "{exact: false}"
+    routerLinkActive="active"
+  >
+    <md-icon class="material-icons">account_circle</md-icon>
+    <div class="profile-details-container">
+      <div class="user-email">{{ currentUser.firstName }}</div>
+      <div class="user-email">{{ appUser }}</div>
+    </div>
+  </a>
+  <a md-button
+    class="side-bar-list-item"
+    [routerLink]="page.routerLink"
+    [routerLinkActiveOptions]= "{exact: false}"
+    routerLinkActive="active"
+    [hidden]="!isAllowedAction('view', page.permissionRef)"
+    *ngFor="let page of pagesList"
+    (click)="page.listTitle === 'Signout' ? signOut() : false"
+  >
+    <md-icon class="material-icons">{{ page.mdIcon }}</md-icon>
+    {{ page.listTitle }}
+  </a>
+</div>

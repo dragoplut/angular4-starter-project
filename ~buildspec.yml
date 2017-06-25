@@ -1,0 +1,19 @@
+version: 0.1
+
+phases:
+  pre_build:
+    commands:
+      - echo Install dependencies
+      - npm install
+  build:
+    commands:
+      - echo Build project
+      - npm run build:prod
+  post_build:
+    commands:
+      - echo Start linter and tests
+      -
+      #- npm run lint
+      #- ./node_modules/.bin/karma start --single-run --browsers PhantomJS
+      - echo Deploy dist to S3 bucket
+      - aws s3 sync --delete ./dist s3://$S3_BUCKET

@@ -1,0 +1,32 @@
+.main-container {
+  color: #585b5d;
+  width: auto;
+  height: 100%;
+  md-sidenav {
+    max-width: 200px;
+    .cdk-focus-trap-content {
+      overflow: hidden;
+    }
+  }
+  .mat-sidenav-content {
+    z-index: 2;
+  }
+  .mat-sidenav-content,
+  md-sidenav {
+    display: flex;
+    overflow: visible;
+  }
+  .main {
+    background-color: #fff;
+    padding: 0;
+    width: 100%;
+    overflow-y: auto !important;
+  }
+  .mat-tab-header-pagination {
+    display: none !important;
+  }
+}
+
+.side-bar-container {
+  background-color: #efefef;
+}
