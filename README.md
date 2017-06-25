@@ -14,7 +14,7 @@
 # install the repo with npm
 npm install
 
-# or, if you user yarn, install the repo with yarn
+# or, if you use yarn, install the repo with yarn
 yarn
 
 # start the server
@@ -112,7 +112,7 @@ npm run build:docker
 Configuration files live in `config/` we are currently using webpack, karma, and protractor for different stages of your application
 
 ## Back-end endpoints 
-Be sure to update Webpack Constants with proper values:
+Be sure to update Webpack Constants with proper values in next config files:
 - webpack.dev.js
 - webpack.prod.js
 
@@ -127,7 +127,7 @@ The following are some things that will make AoT compile fail.
 - @Inputs, @Outputs, View or Content Child(ren), Hostbindings, and any field you use from the template or annotate for Angular should be public
 
 # Favicon
-Generate cross platform icons using: http://www.favicon-generator.org/
+Generate cross-platform icons using: http://www.favicon-generator.org/
 Place generated result to src/assets/icon/ 
 
 # External Stylesheets
