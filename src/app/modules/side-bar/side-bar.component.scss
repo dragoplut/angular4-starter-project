@@ -28,9 +28,6 @@
     margin-right: 12px;
     vertical-align: middle;
   }
-  .app-current-user {
-    height: 36px;
-  }
   .user-email {
     font-size: 10px;
     float: left;
@@ -68,18 +65,6 @@
   -webkit-transition: all .1s ease !important;
   -o-transition: all .1s ease !important;
   transition: all .1s ease !important;
-}
-.app-current-user {
-  background-color: #244131;
-  display: block;
-  //border-bottom: 2px solid #293846;
-  color: #a3e5c0;
-  font-size: 11px;
-  margin: 0;
-  padding: 0;
-  height: 18px;
-  line-height: 14px;
-  text-align: center;
 }
 .app-logo {
   background: url('../../../assets/icon/favicon-96x96.png') no-repeat center center;

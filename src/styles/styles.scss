@@ -175,22 +175,9 @@ body {
   .app-logo {
     opacity: 1 !important;
   }
-  // Move show/hide side-bar button
-  .main-container .side-bar-show-hide-button {
-    left: -47px;
-  }
   // Reduce side-bar width to free space fot table with data
   .side-bar {
     width: 54px !important;
-  }
-  .app-current-user {
-    display: none !important;
-  }
-  .table-lable-title {
-    display: none !important;
-  }
-  .table-lable-icon {
-    display: block !important;
   }
 }
 @media screen and (max-width: $media-mobile-max) {
@@ -218,94 +205,16 @@ body {
     min-height: 56px !important;
     height: 56px !important;
   }
-  .search-block-container {
-    max-width: 120px;
-    width: 120px;
-    .search-input-container {
-      margin: 0 6px 0 0;
-      max-width: 60px;
-      width: 60px;
-      .search-input {
-        max-width: 60px;
-        min-width: 60px;
-        width: 60px;
-        z-index: 55;
-      }
-    }
-    .search-md-select {
-      font-size: 10px;
-      margin-right: 8px;
-      max-width: 40px;
-      min-width: 40px;
-      width: 40px;
-      overflow: hidden;
-    }
-  }
-  .devices-container {
-    .search-block-container {
-      margin-right: 54px;
-    }
-  }
-  .table-lable-title {
-    display: none !important;
-  }
-  .table-lable-icon {
-    display: block !important;
-  }
 }
 @media screen and (max-width: $media-mobile-max) {
-  // Pull up settings bar with toggles
-  .data-table-container .data-table-actions-container {
-    margin-top: 0 !important;
-  }
   .dynamic-content-divider {
     display: none !important;
-  }
-  .data-edit-form {
-    margin: 0 !important;
-    width: 100% !important;
-  }
-  .form-edit-new-content, .form-edit-new-content .mat-input-container, .form-edit-new-content .data-edit-form-item {
-    margin: 0 12px;
-    width: calc(100% - 24px) !important;
-    max-width: calc(100% - 24px) !important;
-  }
-  .form-edit-new-content .data-edit-form-item {
-    margin: 16px 12px !important;
   }
   .form-edit-new-content .mat-input-container:first-child {
     margin-top: 12px;
   }
-  .form-md-option-general {
-    //width: auto !important;
-    //max-width: 480px !important;
-    //min-width: 320px !important;
-  }
   .mat-tab-header-pagination {
     display: flex !important;
-  }
-  .profile-action-button, .app-image-card, .crowdrise-connected-banner {
-    margin-left: 12px !important;
-    margin-right: 12px !important;
-  }
-  .tag-add-button {
-    right: 24px !important;
-  }
-  .user-table-actions {
-    min-width: 36px !important;
-    padding: 0 !important;
-    width: 36px !important;
-  }
-  .table-action-button {
-    overflow: hidden;
-    padding-left: 6px !important;
-    text-overflow: ellipsis;
-    word-break: break-all;
-    white-space: nowrap;
-    width: 62px !important;
-  }
-  .user-table-actions.table-action-button.back-button, .user-table-actions.table-action-button.save-button {
-    width: 82px !important;
   }
   .desktop-content {
     display: none !important;
@@ -314,26 +223,11 @@ body {
     display: inline-block !important;
     width: calc(100% - 24px);
   }
-  .profile-action-button {
-    min-width: 150px !important;
-  }
-  .profile-action-button.connect-crowdrise-button {
-    min-width: 202px !important;
-    overflow: visible;
-  }
-  .container-half {
-    padding-left: 24px;
-    width: 100% !important;
-  }
 }
 @media screen and (min-width: $media-mobile-max) {
   // Hide top toolbar for mobile devices
   .toolbar-container {
     display: none !important;
-  }
-  .refresh-btn {
-    top: 0 !important;
-    right: 36px !important;
   }
 }
 @media (max-width: 600px) and (orientation: portrait) {
@@ -341,83 +235,11 @@ body {
   .mat-toolbar-row {
     height: 56px !important;
   }
-  .search-block-container {
-    max-width: 80px !important;
-  }
   .mat-menu-item, .md-menu-item {
     letter-spacing: -1px !important;
   }
-  .direct-app-header {
-    padding: 0 !important;
-    text-align: center !important;
-    top: 0;
-    height: 120px;
-    a {
-      display: inline-block !important;
-      position: relative;
-      float: none !important;
-      margin: 12px auto 24px;
-      height: 48px !important;
-      width: 47% !important;
-      vertical-align: top;
-    }
-    a:first-child {
-      width: 60% !important;
-    }
-    img {
-      display: inline-block !important;
-      position: relative;
-      margin: 12px 2px !important;
-      transform: scale(0.5);
-    }
-  }
-  .notification-textarea {
-    margin: 0 12px !important;
-    width: 280px !important;
-  }
-  users-table {
-    margin: 0 !important;
-  }
-}
-@media screen and (min-width: 568px) {
-  .payment-form-page {
-    .payment-form {
-      max-width: 100vw !important;
-    }
-    .input-donation-billing-info {
-      float: left;
-      max-width: calc(50% - 48px) !important;
-    }
-    .full-width {
-      max-width: calc(100% - 24px) !important;
-    }
-  }
-}
-@media screen and (max-width: 640px) {
-  .payment-form-page {
-    .payment-form {
-      max-width: 100vw !important;
-    }
-    .input-donation-billing-info {
-      float: left;
-    }
-    .full-width {
-      max-width: calc(100% - 24px) !important;
-    }
-  }
-}
-@media screen and (min-width: 768px) {
-  .payment-form-page {
-    .payment-form {
-      width: 70vw !important;
-      max-width: 768px !important;
-    }
-  }
 }
 @media screen and (max-width: 368px) {
-  .filter-button {
-    display: none !important;
-  }
   .mat-tab-label, .md-tab-label {
     min-width: 45px !important;
     width: 45px;
